@@ -1,0 +1,15 @@
+#alinear {
+    padding-top:20px;
+    display: flex;
+    justify-content: center;
+
+}
+table {
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+    padding-right: 60px;
+
+  }

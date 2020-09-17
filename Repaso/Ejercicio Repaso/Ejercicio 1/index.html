@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="table" class="contenedor">
+        <table>
+            <caption>Liga BBVA. Clasificación</caption>
+            <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>Puntos</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>FC Barcelona</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Real Mardid</td>
+                <td>17</td>
+            </tr>        
+            <tr>
+                <td>3</td>
+                <td>Atlético de Madrid</td>
+                <td>12</td>
+            </tr>        
+            <tr>
+                <td>4</td>
+                <td>Sevilla FC</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </div>
+    <div id="formulario" class="contenedor">
+        <form action="#">
+            <label for="posicion">Posicion</label>
+            <input type="number" name="posicion" value="1" min="1" max="4" id="posicion" class="input-peque">
+            <label for="equipo">Equipo</label>
+            <input type="text" name="equipo" id="equipo">
+            <label for="puntos">Puntos</label>
+            <input type="number" name="puntos" id="puntos" class="input-peque">
+            <button id="submit">Aplicar</button> 
+        </form>
+    </div>
+</body>
+</html>
