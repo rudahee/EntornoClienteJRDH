@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2</title>
+    <script src="ejercicio2.js"></script>
+</head>
+<body>
+    <h1>Número total de empleados: <span id="total-de-empleados"></span></h1>
+    <table>
+        <tbody>
+            <tr>
+                <th>Número de empleado</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+            </tr>
+            <tr class="fila" id="fila-1">
+                <td>1</td>
+                <td class='dni'>77332344K</td>
+                <td>María</td>
+                <td>Pérez Izquierdo</td>
+            </tr>
+            <tr class="fila" id="fila-2">
+                <td>2</td>
+                <td class='dni'>23445677J</td>
+                <td>Javier</td>
+                <td>López Martínez</td>
+            </tr>
+            <tr class="fila" id="fila-3">
+                <td>3</td>
+                <td class='dni'>1234568H</td>
+                <td>Manuel</td>
+                <td>Sánchez Martos</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="formulario">
+        <form action="#">
+            <input type="text" name="dni" id="dni" placeholder="Introduce el DNI">
+            <input type="text" name="nombre" id="nombre" placeholder="Introduce el Nombre">
+            <input type="text" name="apellidos" id="apellidos" placeholder="Introduce los Apellidos">
+            
+            <br>
+            
+            <button type="button" id="btn-insertar">
+                Insertar Nuevo
+            </button>
+            <button type="button" id="btn-eliminar">
+                Eliminar
+            </button>
+            <button type="button" id="btn-modificar">
+                Modificar
+            </button>
+        </form>
+    </div>
+</body>
+</html>
