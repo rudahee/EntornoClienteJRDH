@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
         }
         actualizarTotal();
     })
-    
+
     btn_modificar.addEventListener('click', () => {
         event.preventDefault();
         if (existe()) {
@@ -47,6 +47,7 @@ function existe() {
     let arrayDni = document.getElementsByClassName('dni');
     let flag = false;
 
+
     for (dni of arrayDni) {
         if (dni.innerText == nuevoDni) {
             flag = true;
@@ -57,41 +58,51 @@ function existe() {
 }
 
 function insertar() {
+    //Declaracion de variables
+    //Datos de Inputs
     let dni = document.getElementById('dni').value;
     let nombre = document.getElementById('nombre').value;
     let apellidos = document.getElementById('apellidos').value;
+
+    //Estructura de la tabla
+    let tbdoy = document.getElementsByTagName('tbody')[0];
     let arrayFilas = document.getElementsByClassName('fila');
     let cantidadFilas = arrayFilas.length;
 
-    let tbdoy = document.getElementsByTagName('tbody')[0];
-
+    //Crear fila, y las celdas
     let fila = document.createElement('tr');
+    let celdas = [document.createElement('td'), document.createElement('td'),
+    document.createElement('td'), document.createElement('td')]
+
+    //A la fila le agregamos la clase y el id correspondiente
     fila.className = 'fila';
-    fila.id = 'fila-' + (cantidadFilas+1);
+    fila.id = 'fila-' + (cantidadFilas + 1);
 
-    let celdas = [document.createElement('td'), document.createElement('td'), 
-        document.createElement('td'), document.createElement('td')]
-
+    //Rellenar las celdas
     celdas[0].innerText = cantidadFilas + 1;
     celdas[1].innerText = dni;
     celdas[1].className = 'dni'
     celdas[2].innerText = nombre;
     celdas[3].innerText = apellidos;
 
+
     for (celda of celdas) {
+        //Agregar las celdas a la fila
         fila.appendChild(celda);
     }
 
+    //Agregar la fila al cuerpo de la tabla
     tbdoy.appendChild(fila);
 }
-
 function eliminar() {
+    //Declaracion de variables
     let dniBuscar = document.getElementById('dni').value;
     let arrayDni = document.getElementsByClassName('dni');
     let indice;
     let fila;
 
     for (dni in arrayDni) {
+        //Buscar el indice del elemento a eliminar
         if (arrayDni[dni].innerText == dniBuscar) {
             indice = dni;
         }
@@ -99,42 +110,45 @@ function eliminar() {
 
     fila = arrayDni[indice].parentNode;
 
+    //Eliminar el elemento
     fila.parentNode.removeChild(arrayDni[indice].parentNode);
 }
 function modificar() {
-
+    //Declaracion de variables
     let dniBuscar = document.getElementById('dni').value;
     let nombre = document.getElementById('nombre').value;
     let apellidos = document.getElementById('apellidos').value;
     let arrayDni = document.getElementsByClassName('dni');
     let filaAntigua;
-    let FilaNueva;
+    let filaNueva;
 
     for (dni in arrayDni) {
-        if (arrayDni[dni] == dniBuscar) {
+        //Buscar la fila a modificar
+        if (arrayDni[dni].innerText == dniBuscar) {
             filaAntigua = arrayDni[dni].parentNode;
-            console.log(filaAntigua)
-            console.log(arrayDni[dni])
         }
     }
-     console.log(filaAntigua)
 
+    //Crear fila y celdas
     filaNueva = document.createElement('tr');
     filaNueva.className = 'fila';
-    filaNueva.id = 'fila-' + (filaAntigua.childNodes[0].innerText);
+    filaNueva.id = filaAntigua.id;
 
-    let celdas = [document.createElement('td'), document.createElement('td'), 
-        document.createElement('td'), document.createElement('td')]
+    let celdas = [document.createElement('td'), document.createElement('td'),
+    document.createElement('td'), document.createElement('td')]
 
-    celdas[0].innerText = filaAntigua.innerText;
-    celdas[1].innerText = dni;
+    //Rellenar celdas con los datos
+    celdas[0].innerText = filaNueva.id.split('-')[1];
+    celdas[1].innerText = dniBuscar;
     celdas[1].className = 'dni'
     celdas[2].innerText = nombre;
     celdas[3].innerText = apellidos;
 
     for (celda of celdas) {
+        //Adjuntar las celdas a la fila
         filaNueva.appendChild(celda);
     }
 
-    filaAntigua.parentNode.replaceChild(FilaNueva, filaAntigua);
+    //Sustituir la fila antigua por la nueva
+    filaAntigua.parentNode.replaceChild(filaNueva, filaAntigua);
 }
