@@ -1,9 +1,22 @@
 window.addEventListener('load', () => {
+    //Cuando la pagina termine de cargar.
+
     actualizarTotal();
+    
+    //Obtener los botones que dispararan eventos.
     let btn_modificar = document.getElementById('btn-modificar');
     let btn_insertar = document.getElementById('btn-insertar');
     let btn_eliminar = document.getElementById('btn-eliminar');
 
+
+    /*
+        Los siguientes eventos se dispararan cuando sean presionados. Tendran esta estructura:
+            - Evitar que se reinicie la pagina
+            - Comprueba los requisitos (Si no se cumplan salta un cuadro de dialogo)
+            - Llamar a la funcion correspondiente
+    
+    
+    */
     btn_insertar.addEventListener('click', () => {
         event.preventDefault();
         if (!existe()) {
@@ -38,17 +51,20 @@ window.addEventListener('load', () => {
 })
 
 function actualizarTotal() {
+    //Cuenta la cantidad de columnas y lo imprime en la web
     let total = document.getElementsByClassName('fila').length
     document.getElementById('total-de-empleados').innerText = total;
 }
 
 function existe() {
+    //Declaracion de variables
     let nuevoDni = document.getElementById('dni').value;
     let arrayDni = document.getElementsByClassName('dni');
     let flag = false;
 
 
     for (dni of arrayDni) {
+        //Si encuentra el DNI, el flag es 'true'
         if (dni.innerText == nuevoDni) {
             flag = true;
         }
